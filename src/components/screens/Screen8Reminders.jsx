@@ -12,7 +12,8 @@ import {
   Calendar, 
   Clock,
   Sparkles,
-  Check
+  Check,
+  Bell
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { playChime } from '../../utils/audio';
@@ -134,7 +135,7 @@ export function Screen8Reminders({
         </div>
 
         {/* Notification Cards List (Exact matching Pic 1 & Pic 4) */}
-        <div className="mt-3 space-y-2.5 max-h-[360px] overflow-y-auto pr-0.5">
+        <div className="mt-3 space-y-2.5 max-h-[360px] overflow-y-auto pr-0.5 no-scrollbar">
           {filteredReminders.map((rem) => (
             <div
               key={rem.id}
@@ -194,7 +195,7 @@ export function Screen8Reminders({
 
       {/* Add Reminder Modal */}
       {showAddModal && (
-        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4">
+        <div className="absolute inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
           <form 
             onSubmit={handleAddReminder}
             className="bg-white dark:bg-slate-800 rounded-3xl p-5 max-w-xs w-full shadow-2xl border border-slate-200 dark:border-slate-700"

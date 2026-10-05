@@ -198,7 +198,7 @@ export function Screen7Settings({
 
       {/* About Modal Dialog */}
       {activeModal === 'about' && (
-        <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-xs flex items-center justify-center p-4">
+        <div className="absolute inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
           <div className="bg-white dark:bg-slate-800 rounded-3xl p-5 max-w-xs w-full shadow-2xl border border-slate-200 dark:border-slate-700">
             <div className="flex items-center gap-2 mb-3">
               <span className="text-xl">🍃</span>

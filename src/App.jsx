@@ -52,6 +52,23 @@ export default function App() {
     }
   }, [isDarkMode]);
 
+  // Keyboard navigation in Phone Simulator mode
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      // Don't intercept if user is typing in an input
+      if (['INPUT', 'TEXTAREA'].includes(e.target.tagName)) return;
+      if (viewMode === 'phone') {
+        if (e.key === 'ArrowRight') {
+          setActiveScreen((prev) => (prev < 8 ? prev + 1 : 1));
+        } else if (e.key === 'ArrowLeft') {
+          setActiveScreen((prev) => (prev > 1 ? prev - 1 : 8));
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [viewMode]);
+
   // Reset demo state helper
   const handleResetState = () => {
     setUserData(initialUserData);

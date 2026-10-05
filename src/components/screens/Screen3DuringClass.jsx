@@ -18,18 +18,20 @@ import { playChime } from '../../utils/audio';
 export function Screen3DuringClass({ 
   onNavigate, 
   isDarkMode, 
-  classTimerSeconds, 
+  classTimerSeconds = 6155, 
   setClassTimerSeconds,
-  focusMode,
-  setFocusMode,
-  onTakeBreak
+  focusMode = true,
+  setFocusMode = () => {},
+  onTakeBreak,
+  preview = false
 }) {
   const [isRunning, setIsRunning] = useState(true);
   const [waterDrank, setWaterDrank] = useState(4);
   const [postureAlert, setPostureAlert] = useState(false);
 
-  // Active live timer effect
+  // Active live timer effect - only run when NOT in preview
   useEffect(() => {
+    if (preview || !setClassTimerSeconds) return;
     let interval = null;
     if (isRunning) {
       interval = setInterval(() => {
@@ -37,7 +39,7 @@ export function Screen3DuringClass({
       }, 1000);
     }
     return () => clearInterval(interval);
-  }, [isRunning, setClassTimerSeconds]);
+  }, [isRunning, setClassTimerSeconds, preview]);
 
   // Format seconds to HH : MM : SS
   const formatTime = (totalSeconds) => {
@@ -51,11 +53,11 @@ export function Screen3DuringClass({
     };
   };
 
-  const time = formatTime(classTimerSeconds);
+  const time = preview ? { h: '01', m: '42', s: '35' } : formatTime(classTimerSeconds || 6155);
 
   const handleDrinkWater = () => {
     setWaterDrank((prev) => prev + 1);
-    playChime('bell');
+    if (!preview) playChime('bell');
   };
 
   const handleSimulate50Min = () => {

@@ -3,34 +3,34 @@ import { ArrowRight, Sparkles, Heart } from 'lucide-react';
 
 export function Screen1Splash({ onNavigate, isDarkMode }) {
   return (
-    <div className={`h-full flex flex-col justify-between p-6 select-none transition-colors duration-300 ${
+    <div className={`h-full flex flex-col justify-between p-5 pt-3 pb-3 select-none transition-colors duration-300 ${
       isDarkMode ? 'bg-slate-900 text-slate-100' : 'bg-gradient-to-b from-blue-50/70 via-white to-purple-50/50 text-slate-800'
     }`}>
       {/* Brand Header */}
-      <div className="pt-6 text-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200/60 dark:border-emerald-800/50 text-emerald-700 dark:text-emerald-300 text-xs font-semibold shadow-xs mb-3">
+      <div className="pt-2 text-center">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200/60 dark:border-emerald-800/50 text-emerald-700 dark:text-emerald-300 text-[11px] font-bold shadow-xs mb-2">
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
           Digital Engineering Lab Prototype
         </div>
 
         <div className="flex items-center justify-center gap-2">
-          <h1 className="text-3xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent">
+          <h1 className="text-2xl sm:text-3xl font-black tracking-tight bg-gradient-to-r from-indigo-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent">
             StudyEase
           </h1>
-          <svg className="w-7 h-7 text-emerald-500 fill-emerald-500/20" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+          <svg className="w-6 h-6 text-emerald-500 fill-emerald-500/20" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918" />
           </svg>
         </div>
-        <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium mt-1">
+        <p className="text-xs text-slate-500 dark:text-slate-400 font-semibold mt-0.5">
           Your Digital Learning Wellness Companion
         </p>
       </div>
 
       {/* Hero Illustration */}
-      <div className="my-auto py-4 flex flex-col items-center justify-center">
-        <div className="relative w-64 h-64 flex items-center justify-center">
+      <div className="my-auto py-2 flex flex-col items-center justify-center">
+        <div className="relative w-48 h-48 sm:w-52 sm:h-52 flex items-center justify-center">
           {/* Ambient Glows */}
-          <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-indigo-300/30 via-purple-200/40 to-emerald-200/30 dark:from-indigo-600/20 dark:to-emerald-600/20 blur-2xl"></div>
+          <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-indigo-300/30 via-purple-200/40 to-emerald-200/30 dark:from-indigo-600/20 dark:to-emerald-600/20 blur-xl"></div>
 
           {/* Decorative Student Illustration SVG */}
           <svg viewBox="0 0 320 320" className="w-full h-full relative z-10 drop-shadow-md">
@@ -92,17 +92,17 @@ export function Screen1Splash({ onNavigate, isDarkMode }) {
         </div>
 
         {/* Tagline */}
-        <div className="mt-4 text-center">
-          <p className="text-base sm:text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center justify-center gap-1.5">
+        <div className="mt-2 text-center">
+          <p className="text-base sm:text-lg font-extrabold text-slate-900 dark:text-white flex items-center justify-center gap-1.5">
             Better Habits. Brighter Learning.
           </p>
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 max-w-[240px]">
+          <p className="text-xs text-slate-600 dark:text-slate-300 mt-1 max-w-[240px] font-medium leading-relaxed">
             Designed for engineering students to eliminate digital fatigue and sustain focus.
           </p>
         </div>
 
         {/* Carousel indicators */}
-        <div className="flex gap-1.5 mt-5">
+        <div className="flex gap-1.5 mt-3">
           <div className="w-6 h-1.5 rounded-full bg-indigo-600 dark:bg-indigo-400 transition-all"></div>
           <div className="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-700"></div>
           <div className="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-700"></div>
@@ -110,17 +110,17 @@ export function Screen1Splash({ onNavigate, isDarkMode }) {
       </div>
 
       {/* Bottom CTA */}
-      <div className="pb-4">
+      <div className="pb-1">
         <button
           onClick={() => onNavigate(2)}
-          className="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold shadow-lg shadow-indigo-500/25 flex items-center justify-center gap-2 transform active:scale-[0.98] transition-all cursor-pointer"
+          className="w-full py-3 px-6 rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold text-sm shadow-lg shadow-indigo-500/25 flex items-center justify-center gap-2 transform active:scale-[0.98] transition-all cursor-pointer"
         >
           <span>Get Started</span>
           <ArrowRight className="w-4 h-4" />
         </button>
 
-        <p className="text-center text-[11px] text-slate-400 dark:text-slate-500 mt-3">
-          Stay Focused • Stay Healthy • Learn Better 🤍
+        <p className="text-center text-[10px] text-slate-400 dark:text-slate-500 mt-2">
+          Stay Focused • Stay Healthy • Learn Better ♡
         </p>
       </div>
     </div>

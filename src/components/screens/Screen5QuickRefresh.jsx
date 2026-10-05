@@ -15,15 +15,17 @@ import { playChime } from '../../utils/audio';
 export function Screen5QuickRefresh({ 
   onNavigate, 
   isDarkMode, 
-  onBreakCompleted 
+  onBreakCompleted,
+  preview = false
 }) {
   const [secondsLeft, setSecondsLeft] = useState(60); // 01:00
-  const [isActive, setIsActive] = useState(true);
+  const [isActive, setIsActive] = useState(!preview);
   const [breathPhase, setBreathPhase] = useState('in'); // 'in' or 'out'
   const [phaseSeconds, setPhaseSeconds] = useState(4);
 
-  // 1-minute countdown timer
+  // 1-minute countdown timer - disabled in preview
   useEffect(() => {
+    if (preview) return;
     let interval = null;
     if (isActive && secondsLeft > 0) {
       interval = setInterval(() => {
@@ -33,10 +35,11 @@ export function Screen5QuickRefresh({
       handleComplete();
     }
     return () => clearInterval(interval);
-  }, [isActive, secondsLeft]);
+  }, [isActive, secondsLeft, preview]);
 
-  // 4s Inhale / 4s Exhale rhythm
+  // 4s Inhale / 4s Exhale rhythm - disabled in preview
   useEffect(() => {
+    if (preview) return;
     let breathInterval = null;
     if (isActive && secondsLeft > 0) {
       breathInterval = setInterval(() => {
@@ -54,9 +57,10 @@ export function Screen5QuickRefresh({
       }, 1000);
     }
     return () => clearInterval(breathInterval);
-  }, [isActive, secondsLeft]);
+  }, [isActive, secondsLeft, preview]);
 
   const handleComplete = () => {
+    if (preview) return;
     setIsActive(false);
     playChime('success');
     confetti({
